@@ -1,10 +1,10 @@
 'use strict';
 
+import config from 'config';
 import express from 'express';
 
 const app = express();
-const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
+app.listen(config.port, () => {
   console.log(`Server listening on port $(PORT)`);
 });
