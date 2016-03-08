@@ -6,25 +6,39 @@ import Todo from '../lib/todos';
 const { Router } = express;
 const todosRouter = new Router();
 
-todosRouter.get('/', (req, res, next) => {
+todosRouter.route('/')
+.get((req, res, next) => {
   Todo.find((err, todos) => {
     if (err) return next (err);
     res.json(todos);
   });
-});
-
-todosRouter.post('/', (req, res, next) => {
+})
+.post((req, res, next) => {
   Todo.create(req.body, (err, todo) => {
     if (err) return next(err);
     res.status(201).json(todo);
   });
 });
 
-todosRouter.get('/:id', (req, res, next) => {
+
+todosRouter.route('/:id')
+.get((req, res, next) => {
   Todo.findOne(req.params.id, (err, todo) => {
     if (err) return next(err);
     if (!todo) return res.sendStatus(404);
     res.json(todo);
+  });
+})
+.put((req, res, next) => {
+  Todo.update(req.params.id, req.body, (err, todo) => {
+    if (err) return next(err);
+    res.json(todo);
+  });
+})
+.delete((req, res, next) => {
+  Todo.delete(req.params.id, (err, todo) => {
+    if (err) return next(err);
+    res.sendStatus(204);
   });
 });
 
