@@ -1,4 +1,9 @@
 node_modules
+<<<<<<< HEAD
 .DS_Store
 thumbs.db
 *.log
+=======
+*.log*
+.DS_Store
+>>>>>>> upstream/master
