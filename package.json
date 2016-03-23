@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node init",
     "startdev": "babel-node app",
-    "watch": "nodemon --exec babel-node -- app"
+    "watch": "nodemon --exec babel-node -- app",
+    "build-watch": "webpack-dev-server --inline --content-base public/",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,14 @@
     "express": "^4.13.4"
   },
   "devDependencies": {
-    "nodemon": "^1.9.1"
+    "babel-cli": "^6.6.5",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "nodemon": "^1.9.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   }
 }
