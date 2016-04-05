@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AddTodo from './AddTodo'
-import TodoList from './TodoList'
+import FilteredTodoList from '../containers/FilteredTodoList'
 
 class App extends Component {
 
@@ -42,10 +42,7 @@ class App extends Component {
     return (
       <div>
         <AddTodo onSubmit={this.createTodo} />
-        <TodoList
-          todos={this.state.todos}
-          onTodoClick={this.toggleTodo}
-        />
+        <FilteredTodoList />
       </div>
     )
   }
@@ -53,3 +50,18 @@ class App extends Component {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
