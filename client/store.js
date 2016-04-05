@@ -18,7 +18,7 @@ const reducer = (state = [], action) => {
         }
         return todo
       })
-    case 'TODO_DELETE',
+    case 'TODO_DELETE':
       return state.filter((todo) => {
         return todo.id !== action.payload
       })

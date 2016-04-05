@@ -19,11 +19,9 @@ export const updateTodo = (id, partial) => ({
   }
 })
 
-export const deletTodo = (id) => ({
+export const deleteTodo = (id) => ({
   type: 'TODO_DELETE',
-  payload: {
-    id
-  }
+  payload: id
 })
 
 export const clearCompleted = (todos) => ({
