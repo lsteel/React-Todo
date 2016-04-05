@@ -18,7 +18,7 @@ class AddTodo extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input ref="input" />
-        <button>Add Todo</button>
+        <button>Submit</button>
       </form>
     )
   }
