@@ -1,22 +1,35 @@
+'use strict'
+
 import { connect } from 'react-redux'
 import TodoList from '../components/TodoList'
-import { updateTodo } from '../actions'
+import { updateTodo, deleteTodo, listTodos } from '../actions'
 
 const mapStateToProps = (state) => {
-  return {
-    todos: state
+  let todos = state.todos.items
+
+  switch (state.filter) {
+    case 'ACTIVE':
+      todos = todos.filter((todo) => !todo.completed)
+      break;
+    case 'COMPLETED':
+      todos = todos.filter((todo) => todo.completed)
   }
+
+  return { todos }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick(todo) {
-      dispatch(updateTodo(todo.id, {
-        completed: !todo.completed
-      }))
-    }
+const mapDispatchToProps = (dispatch) => ({
+  init() {
+    dispatch(listTodos())
+  },
+  onTodoClick(todo) {
+    dispatch(updateTodo(todo.id, { completed: !todo.completed }))
+  },
+  // Add this handler
+  onTodoDeleteClick(todo) {
+    dispatch(deleteTodo(todo.id))
   }
-}
+})
 
 export default connect(
   mapStateToProps,

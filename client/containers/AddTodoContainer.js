@@ -6,13 +6,12 @@ import { createTodo } from '../actions'
 
 const mapStateToProps = null
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSubmit(name) {
-      dispatch(createTodo(name))
-    }
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit(value) {
+    if (!value) return
+    dispatch(createTodo(value))
   }
-}
+})
 
 export default connect(
   mapStateToProps,
