@@ -1,3 +1,4 @@
+var config = require('config')
 var webpack = require('webpack')
 var path = require('path');
 
@@ -27,5 +28,10 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    proxy: {
+      '**': `http://localhost:${config.get('port')}`
+    }
   }
 }
