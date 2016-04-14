@@ -10,9 +10,10 @@ const mapStateToProps = (state) => {
   switch (state.filter) {
     case 'ACTIVE':
       todos = todos.filter((todo) => !todo.completed)
-      break;
+      break
     case 'COMPLETED':
       todos = todos.filter((todo) => todo.completed)
+      break
   }
 
   return { todos }
