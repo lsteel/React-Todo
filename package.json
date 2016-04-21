@@ -26,7 +26,8 @@
     "mongoose": "^4.4.12",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "webpack": "^1.12.14"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
@@ -44,7 +45,6 @@
     "supertest": "^1.2.0",
     "supertest-as-promised": "^3.0.0",
     "transform-loader": "^0.2.3",
-    "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }
 }
