@@ -10,7 +10,8 @@
     "build-watch": "webpack-dev-server --inline --content-base public/",
     "all": "npm run watch & npm run build-watch",
     "build": "NODE_ENV=production webpack",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test mocha",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
