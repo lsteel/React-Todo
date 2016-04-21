@@ -9,15 +9,13 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ],
+  plugins: [],
   module: {
     loaders: [
+      {
+        test: /\.js$/,
+        loader: 'transform?envify'
+      },
       {
         test: /\.js$/, // Telling webpack to use files that match this pattern
         loader: 'babel', // Uses the module `babel-loader`
@@ -35,3 +33,29 @@ module.exports = {
     }
   }
 }
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
