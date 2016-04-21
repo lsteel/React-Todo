@@ -9,13 +9,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ],
+  plugins: [],
   module: {
     loaders: [
       {
@@ -34,4 +28,12 @@ module.exports = {
       '**': `http://localhost:${config.get('port')}`
     }
   }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }))
 }
