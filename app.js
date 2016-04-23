@@ -14,7 +14,6 @@ const PORT = config.port
 const PUBLIC_DIR = path.join(__dirname, 'public')
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded())
 app.use('/api', api)
 app.use(express.static(PUBLIC_DIR))
 
